@@ -1,0 +1,8 @@
+version: '3'
+services:
+  app:
+    image: anthonykgross/docker-fullstack-web:php7
+    ports:
+      - 80:80
+    volumes:
+      - .:/src
