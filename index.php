@@ -35,22 +35,29 @@ foreach($words as $word) {
         $wordsDensity[$word] += 1;
     }
 }
-$nbWords = count($wordsDensity);
+
+
+function echo_top_k($sorted_array, $k)
+{
+    $width = 40;
+    $echo_word_and_stats = function ($count, $word, $nbWords) use($width)
+    {
+        $percent = floor($count / $nbWords * 100);
+        echo "| $word : $count ($percent%) | \n";
+        echo str_repeat("-", $width);
+        echo "\n";
+    };
+
+    $top_words = array_slice($sorted_array, 0, $k);
+    $nbWords = count($sorted_array);
+
+    echo str_repeat("-", $width);
+    echo "\n";
+    array_walk($top_words, $echo_word_and_stats, $nbWords);
+}
+
+
 arsort($wordsDensity);
+echo_top_k($wordsDensity, 5);
 
-echo "-------------------------------------\n";
-for ($i = 0; $i < 20; $i++){
-//    $w = array_key_first($wordsDensity);
-//    echo "-------------------------------------\n";
-//    echo "| $w \n";
-}
 
-$i = 0;
-foreach($wordsDensity as $word => $density) {
-    if($i < 20) {
-        $percent = floor($density/$nbWords*100);
-        echo "| $word : $density ($percent%)\n";
-        echo "-------------------------------------\n";
-        $i++;
-    }
-}
