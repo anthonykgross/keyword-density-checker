@@ -8,10 +8,10 @@ $regexp = '/<script[^>]*>[\s\S]*?<\/script>/i';
 $out = null;
 
 $noScriptingTagContent = preg_replace($regexp, '', $content);
-$noTagContent = strip_tags($noScriptingTagContent);
-$content = preg_replace('/\s+/i', ' ', $noTagContent);
-$content = preg_replace('/\'/i', ' ', $noTagContent);
-$content = strtolower($content);
+$noTagContent = strip_tags($noStyleTagContent);
+$noTagContent = preg_replace('/\s+/i', ' ', $noTagContent);
+$noTagContent = preg_replace('/\'/i', ' ', $noTagContent);
+$content = strtolower($noTagContent);
 
 $frenchAccentLetter = 'àèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸçÇßØøÅåÆæœ';
 
