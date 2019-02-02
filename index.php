@@ -35,30 +35,21 @@ $wordsDensity = [];
 $wordLengthMinLimit = 4;
 
 foreach($words as $word) {
-
-    if(strlen($word) > $wordLengthMinLimit){
-        if (!array_key_exists($word, $wordsDensity)) {
-            $wordsDensity[$word] = 0;
-        }
-        $wordsDensity[$word] += 1;
-    }
+	if(strlen($word) > $wordLengthMinLimit && !array_search($word, $smallWords)){
+		if (!isset($wordsDensity[$word])){
+			$wordsDensity[$word] = 0;
+		}
+		$wordsDensity[$word] += 1;
+	}
 }
 $nbWords = count($wordsDensity);
 arsort($wordsDensity);
 
-echo "-------------------------------------\n";
-for ($i = 0; $i < 20; $i++){
-//    $w = array_key_first($wordsDensity);
-//    echo "-------------------------------------\n";
-//    echo "| $w \n";
-}
+$shortWordsDensity = array_slice($wordsDensity, 0, 20, true);
 
-$i = 0;
-foreach($wordsDensity as $word => $density) {
-    if($i < 20) {
-        $percent = floor($density/$nbWords*100);
-        echo "| $word : $density ($percent%)\n";
-        echo "-------------------------------------\n";
-        $i++;
-    }
+echo "-------------------------------------\n";
+foreach($shortWordsDensity as $word => $density) {
+	$percent = floor($density/$nbWords*100);
+	echo "| $word : $density ($percent%)\n";
+	echo "-------------------------------------\n";
 }
