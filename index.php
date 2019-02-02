@@ -3,11 +3,19 @@ include('vendor/autoload.php');
 
 $url = "https://anthonykgross.fr";
 $content = file_get_contents($url);
-
-$regexp = '/<script[^>]*>[\s\S]*?<\/script>/i';
 $out = null;
 
-$noScriptingTagContent = preg_replace($regexp, '', $content);
+//Retrait de toutes les balises scripts du code
+$regexpscript = '/<script[^>]*>[\s\S]*?<\/script>/i';
+//Retrait de toutes les balises styles
+$regexpstyle = '/<style[^>]*>[\s\S]*?<\/style>/i';
+//Retrait de tous les commentaires
+$regexpcommentaires = '/\/\**[\s\S]*?\*\//i';
+
+$noScriptingTagContent = preg_replace($regexpscript, '', $content);
+$noStyleTagContent = preg_replace($regexpstyle, '', $noScriptingTagContent);
+$noCommentTagContent = preg_replace($regexpcommentaires, '', $noStyleTagContent);
+
 $noTagContent = strip_tags($noStyleTagContent);
 $noTagContent = preg_replace('/\s+/i', ' ', $noTagContent);
 $noTagContent = preg_replace('/\'/i', ' ', $noTagContent);
