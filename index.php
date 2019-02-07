@@ -40,11 +40,9 @@ arsort($wordsDensity);
 echo "URL : $url \n";
 echo "Density : \n";
 
-$i = 0;
-foreach($wordsDensity as $word => $density) {
-    if($i < 20) {
-        $percent = floor($density/$nbWords*100);
-        echo "  | $word : $density ($percent%)\n";
-        $i++;
-    }
+$shortWordsDensity = array_slice($wordsDensity, 0, 20, true);
+
+foreach($shortWordsDensity as $word => $density) {
+	$percent = floor($density/$nbWords*100);
+	echo "| $word : $density ($percent%)\n";
 }
