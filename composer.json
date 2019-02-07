@@ -1,4 +1,14 @@
 {
-    "name": "./vendor",
-    "require": {}
+    "name": "anthonykgross/keyword-density-checker",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "KeywordDensityChecker\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "KeywordDensityChecker\\Tests\\": "tests/"
+        }
+    }
 }
