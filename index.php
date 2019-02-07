@@ -42,8 +42,7 @@ echo "Density : \n";
 
 $shortWordsDensity = array_slice($wordsDensity, 0, 20, true);
 
-foreach($wordsDensity as $word => $density) {
-    $percent = floor($density/$nbWords*100);
-    echo "| $word : $density ($percent%)\n";
-    $i++;
+foreach($shortWordsDensity as $word => $density) {
+	$percent = floor($density/$nbWords*100);
+	echo "| $word : $density ($percent%)\n";
 }
