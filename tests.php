@@ -1,5 +1,6 @@
 <?php
 
+use KeywordDensityChecker\Language\French;
 use KeywordDensityChecker\Stripper\Factory;
 use KeywordDensityChecker\Stripper\Html;
 
@@ -12,3 +13,6 @@ include('vendor/autoload.php');
 
 //echo Factory::stripMultiple(file_get_contents('https://anthonykgross.fr'), ['HTML']);
 echo Factory::stripMultiple(file_get_contents('https://anthonykgross.fr'), ['HTML', 'XML']);
+
+//$french = new French();
+//$french->getValuableWords('developpeur développeur');

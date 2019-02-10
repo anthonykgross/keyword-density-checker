@@ -11,6 +11,4 @@ class KeywordDensityChecker
     public function __construct($content) {
         $this->content = $content;
     }
-
-
 }
