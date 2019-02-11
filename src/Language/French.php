@@ -5,6 +5,7 @@ namespace KeywordDensityChecker\Language;
 
 class French implements ILanguage
 {
+    const file = __DIR__.'/../Data/French.json';
     const charList = 'àèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸçÇßØøÅåÆæœ';
     const charSuccessors = [
         'a' => [
