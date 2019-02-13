@@ -1,4 +1,5 @@
 <?php
+
 namespace KeywordDensityChecker;
 
 class KeywordDensityChecker
@@ -8,7 +9,8 @@ class KeywordDensityChecker
      */
     private $content;
 
-    public function __construct($content) {
+    public function __construct($content)
+    {
         $this->content = $content;
     }
 }

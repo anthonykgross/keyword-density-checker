@@ -14,7 +14,8 @@ class Factory
      * @param $class
      * @return mixed
      */
-    static function getValuableWords($content, $class) {
+    static function getValuableWords($content, $class)
+    {
         if (in_array(ILanguage::class, class_implements($class))) {
             /**
              * @var $o ILanguage
@@ -30,7 +31,8 @@ class Factory
      * @param array $languages
      * @return mixed
      */
-    static function getValuableWordsMultiple($content, $languages = []) {
+    static function getValuableWordsMultiple($content, $languages = [])
+    {
         foreach ($languages as $language) {
             if (array_key_exists($language, self::languages)) {
                 $content = self::getValuableWords($content, self::languages[$language]);

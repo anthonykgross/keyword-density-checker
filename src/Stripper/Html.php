@@ -27,7 +27,8 @@ class Html implements IStripper
      * @param $content
      * @return null|string|string[]
      */
-    private function stripScriptTags($content){
+    private function stripScriptTags($content)
+    {
         return preg_replace(self::scriptTagRegExp, '', $content);
     }
 
@@ -35,7 +36,8 @@ class Html implements IStripper
      * @param $content
      * @return string
      */
-    private function stripTags($content){
+    private function stripTags($content)
+    {
         return strip_tags($content);
     }
 
@@ -43,7 +45,8 @@ class Html implements IStripper
      * @param $content
      * @return null|string|string[]
      */
-    private function stripWhiteSpaces($content){
+    private function stripWhiteSpaces($content)
+    {
         return preg_replace('/\s+/i', ' ', $content);
     }
 
@@ -51,7 +54,8 @@ class Html implements IStripper
      * @param $content
      * @return null|string|string[]
      */
-    private function stripQuote($content){
+    private function stripQuote($content)
+    {
         return preg_replace('/\'/i', ' ', $content);
     }
 
@@ -59,7 +63,8 @@ class Html implements IStripper
      * @param $content
      * @return string
      */
-    private function decodeHtml($content){
+    private function decodeHtml($content)
+    {
         return strtolower(html_entity_decode($content));
     }
 }

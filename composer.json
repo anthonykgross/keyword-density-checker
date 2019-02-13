@@ -10,5 +10,8 @@
         "psr-4": {
             "KeywordDensityChecker\\Tests\\": "tests/"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.5"
     }
 }

@@ -16,7 +16,8 @@ class Factory
      * @param $class
      * @return mixed
      */
-    static function strip($content, $class) {
+    static function strip($content, $class)
+    {
         if (in_array(IStripper::class, class_implements($class))) {
             /**
              * @var $o IStripper
@@ -33,7 +34,8 @@ class Factory
      * @param array $formats
      * @return mixed
      */
-    static function stripMultiple($content, $formats = []) {
+    static function stripMultiple($content, $formats = [])
+    {
         foreach ($formats as $format) {
             if (array_key_exists($format, self::strippers)) {
                 $content = self::strip($content, self::strippers[$format]);
